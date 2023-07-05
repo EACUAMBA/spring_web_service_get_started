@@ -24,7 +24,7 @@ public class WebServiceConfiguration {
 	}
 	
 	
-	@Bean
+	@Bean(name = "countries")
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
 		DefaultWsdl11Definition defaultWsdl11Definition = new DefaultWsdl11Definition();
 		defaultWsdl11Definition.setPortTypeName("CountriesPort");
@@ -35,7 +35,7 @@ public class WebServiceConfiguration {
 	}
 	
 	@Bean
-	public XsdSchema coutriesSchema() {
+	public XsdSchema countriesSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("countries.xsd"));
 	}
 }
