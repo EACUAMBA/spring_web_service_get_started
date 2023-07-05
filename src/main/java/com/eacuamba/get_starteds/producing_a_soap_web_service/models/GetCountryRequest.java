@@ -38,10 +38,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "name"
 })
-@XmlRootElement(name = "getCountryRequest")
+@XmlRootElement(name = "getCountryRequest", namespace = "http://spring.io/guides/gs-producing-web-service")
 public class GetCountryRequest {
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://spring.io/guides/gs-producing-web-service")
     protected String name;
 
     /**

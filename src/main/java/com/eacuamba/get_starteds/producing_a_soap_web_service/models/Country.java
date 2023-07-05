@@ -46,13 +46,13 @@ import jakarta.xml.bind.annotation.XmlType;
 })
 public class Country {
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://spring.io/guides/gs-producing-web-service")
     protected String name;
     protected int population;
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://spring.io/guides/gs-producing-web-service")
     protected String capital;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "string")
+    @XmlSchemaType(name = "string", namespace = "http://spring.io/guides/gs-producing-web-service")
     protected Currency currency;
 
     /**
