@@ -1,0 +1,49 @@
+package com.eacuamba.get_starteds.producing_a_soap_web_service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.util.Assert;
+
+import com.eacuamba.get_starteds.producing_a_soap_web_service.models.Country;
+import com.eacuamba.get_starteds.producing_a_soap_web_service.models.Currency;
+
+import jakarta.annotation.PostConstruct;
+
+@Repository
+public class CountryRepository {
+	private static final Map<String,  Country> countries = new HashMap<>();
+	
+	@PostConstruct
+	public void postContruct() {
+		Country spain = new Country();
+		spain.setName("Spain");
+		spain.setCapital("Madrid");
+		spain.setCurrency(Currency.EUR);
+		spain.setPopulation(46704314);
+
+		countries.put(spain.getName(), spain);
+
+		Country poland = new Country();
+		poland.setName("Poland");
+		poland.setCapital("Warsaw");
+		poland.setCurrency(Currency.PLN);
+		poland.setPopulation(38186860);
+
+		countries.put(poland.getName(), poland);
+
+		Country uk = new Country();
+		uk.setName("United Kingdom");
+		uk.setCapital("London");
+		uk.setCurrency(Currency.GBP);
+		uk.setPopulation(63705000);
+
+		countries.put(uk.getName(), uk);
+	}
+	
+	public Country findName(String name) {
+		Assert.notNull(name, "The country name must not be null.");
+		return countries.get(name);
+	}
+}
